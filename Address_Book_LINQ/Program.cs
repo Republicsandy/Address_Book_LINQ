@@ -7,7 +7,7 @@ namespace Address_Book_LINQ
     {
         static void Main(string[] args)
         {
-            TableOperations.CountByTypeAfterER();
+            DataTable dataTable = GetDataTables.GetTable();
         }
     }
 }
