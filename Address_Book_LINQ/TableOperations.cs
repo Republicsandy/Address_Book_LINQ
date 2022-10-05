@@ -50,6 +50,19 @@ namespace Address_Book_LINQ
 
         }
 
+        //Retrieve based on city name
+        public static List<string> RetrieveDataBasedOnCityName(DataTable dataTable, string cityname)
+        {
+            var member = from contacts in dataTable.AsEnumerable() where contacts.Field<string>("City") == cityname select contacts;
+            List<string> result = new List<string>();
+            foreach (var mem in member)
+            {
+                Console.WriteLine("{0} {1} {2} {3} {4} {5} {6} {7} {8}", mem["ContactId"], mem["FirstName"], mem["LastName"], mem["Address"], mem["City"], mem["State"], mem["ZipCode"], mem["PhoneNumber"], mem["Email"]);
+                result.Add(mem["FirstName"] + " " + mem["LastName"]);
+            }
+            return result;
+        }
+
         public static void Display(DataTable dataTable)
         {
             foreach (DataRow rows in dataTable.Rows)

@@ -89,6 +89,14 @@ namespace TestProject1
             Assert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public void TestMethodToCheckRetrievalBasedOnCityName()
+        {
+            List<string> actual = TableOperations.RetrieveDataBasedOnCityName(dataTable, "Chennai");
+            string[] temp = { "Amir Khan", "Dhanush Raj" };
+            var expected = new List<string>(temp);
+            CollectionAssert.AreEqual(actual, expected);
+        }
 
     }
 }
