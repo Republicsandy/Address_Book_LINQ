@@ -32,6 +32,24 @@ namespace Address_Book_LINQ
             return "Failure";
 
         }
+
+        //Delete the row of given name
+        public static string DeleteaPerson(DataTable dataTable, string search)
+        {
+            var member = (from contacts in dataTable.AsEnumerable() where contacts.Field<string>("FirstName") == search select contacts).FirstOrDefault();
+
+            if (member != null)
+            {
+                //deletes the column
+                member.Delete();
+                Console.WriteLine("After Updation");
+                Display(dataTable);
+                return "Success";
+            }
+            return "Failure";
+
+        }
+
         public static void Display(DataTable dataTable)
         {
             foreach (DataRow rows in dataTable.Rows)
