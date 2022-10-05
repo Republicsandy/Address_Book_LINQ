@@ -7,6 +7,8 @@ namespace TestProject1
 {
     public class Tests
     {
+        DataTable dataTable;
+
         [Test]
         public void TestMethodForInsertion()
         {
@@ -27,5 +29,23 @@ namespace TestProject1
             System.Console.WriteLine(actual.Rows.Count);
             Assert.AreEqual(actual.Rows.Count, expected);
         }
+
+        //Test method to check updation
+        [Test]
+        public void TestMethodForModfiyLastName()
+        {
+            string expected = "Success";
+            string actual = TableOperations.ModifyLastName(dataTable, "Jhan", "Amir");
+            Assert.AreEqual(expected, actual);
+        }
+        //Test method to check updation wrong name
+        [Test]
+        public void NegativeTestMethodForModfiyLastName()
+        {
+            string expected = "Failure";
+            string actual = TableOperations.ModifyLastName(dataTable, "Jhan", "Al");
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

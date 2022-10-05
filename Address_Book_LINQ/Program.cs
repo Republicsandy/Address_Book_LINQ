@@ -7,7 +7,10 @@ namespace Address_Book_LINQ
     {
         static void Main(string[] args)
         {
+            //Console.WriteLine("Hello World!");
             DataTable dataTable = GetDataTables.GetTable();
+            TableOperations.Display(dataTable);
+            TableOperations.ModifyLastName(dataTable, "singh", "sandeep");
         }
     }
 }
